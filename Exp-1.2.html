@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html Lang="en">
+<head>
+    <title> Bank Account Registration </title>
+</head>
+<body>
+    <h2> Simple Banking Interface   </h2>   
+    <p>Balance  : Rs <span id="balance">1000</span></p>
+    <input type="number" id="amount" Placeholder ="Enter amount">
+    <button onclick = "deposit()"> Deposit</button>
+    <button onclick = "withdraw()">Withdraw</button>
+    <p id="message"></p>
+    <script>
+        var balance = 1000;
+        function resetfield(){
+            document.getElementById("amount").value="";
+        }
+        function deposit(){
+            var amt=parseInt(document.getElementById("amount").value);
+            if(amt>0){
+                balance+=amt;
+                document.getElementById("balance").innerText= balance;
+                document.getElementById("message").innerText="Deposited Successfully "+amt;
+
+            }
+            else{
+                document.getElementById("message").innerText="Enter valid amount to deposit";
+            }
+            resetfield();
+        }
+        function withdraw(){
+            var amt=parseInt(document.getElementById("amount").value);
+            if(amt>0 && amt<=balance){
+                balance-=amt;
+                document.getElementById("balance").innerText= balance;
+                document.getElementById("message").innerText="Withdrawn Successfully "+amt;
+            }
+            else{
+                document.getElementById("message").innerText="Enter valid amount to withdraw";
+            }
+            resetfield();
+        }
+    </script>
+    
+    <br><br>
+</body>
+</html>

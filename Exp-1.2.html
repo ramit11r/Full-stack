@@ -2,14 +2,32 @@
 <html Lang="en">
 <head>
     <title> Bank Account Registration </title>
+    <style>
+        .box{
+            background-color: rgb(41, 148, 180);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;      
+            justify-content: center;     
+            align-items: center;         
+        }
+        input{
+            height: 18px;
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="box">
     <h2> Simple Banking Interface   </h2>   
     <p>Balance  : Rs <span id="balance">1000</span></p>
     <input type="number" id="amount" Placeholder ="Enter amount">
+    <div class="button">
     <button onclick = "deposit()"> Deposit</button>
-    <button onclick = "withdraw()">Withdraw</button>
-    <p id="message"></p>
+    <button onclick = "withdraw()">Withdraw</button></div>
+    <p id="message"></p></div>
     <script>
         var balance = 1000;
         function resetfield(){

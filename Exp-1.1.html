@@ -2,39 +2,74 @@
 <html>
 <head>
     <title>Form</title>
+
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;   
+            align-items: center;       
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-box{
+            background-color: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 8px;
+            
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        input{
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #173dd5;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Student Registration</h1>
+    <div class="form-box">
+        <h1>Student Registration</h1>
 
-    <form>
-        <label>
-            <h3>Student Name:</h3>
-        </label>
-        <input type="text" size="30" maxlength="60" required>
-        <br><br>
+        <form>
+            <label><h3>Student Name:</h3></label>
+            <input type="text" title="Enter full name" maxlength="60" required>
+            <br><br>
 
-        <label>
-            <h3>Email:</h3>
-        </label>
-        <input 
-            type="email"
-            size="30" 
-            maxlength="100"
-            pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
-            title="Only Gmail addresses are allowed"
-            required
-        >
-        <br><br>
+            <label><h3>Email:</h3></label>
+            <input type="email" title="Only Gmail addresses are allowed" required>
+            <br><br>
 
-        <label>
-            <h3>Age:</h3>
-        </label>
-        <input type="number" min="1" max="100" required>
-        <br><br>
+            <label><h3>Age:</h3></label>
+            <input type="number" min="1" max="100" required>
+            <br><br>
 
-        <button type="submit">Submit</button>
-    </form>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Product Filter</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 450px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .product {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Product List</h2>
+
+        <select id="filterSelect">
+            <option value="all">All Products</option>
+            <option value="electronics">Electronics</option>
+            <option value="accessories">Accessories</option>
+        </select>
+
+        <div id="productList"></div>
+    </div>
+
+    <script>
+        const products = [
+            { name: "Laptop", price: 55000, category: "electronics" },
+            { name: "Mobile", price: 30000, category: "electronics" },
+            { name: "Headphones", price: 2500, category: "accessories" },
+            { name: "Keyboard", price: 1500, category: "accessories" },
+            { name: "Mouse", price: 800, category: "accessories" }
+        ];
+
+        const productList = document.getElementById("productList");
+        const filterSelect = document.getElementById("filterSelect");
+
+        function displayProducts(items) {
+            productList.innerHTML = "";
+            items.forEach(product => {
+                productList.innerHTML += `
+                    <div class="product">
+                        <span>${product.name}</span>
+                        <span class="price">₹${product.price}</span>
+                    </div>
+                `;
+            });
+        }
+
+        filterSelect.addEventListener("change", () => {
+            const selectedCategory = filterSelect.value;
+
+            if (selectedCategory === "all") {
+                displayProducts(products);
+            } else {
+                const filteredProducts = products.filter(
+                    product => product.category === selectedCategory
+                );
+                displayProducts(filteredProducts);
+            }
+        });
+
+        displayProducts(products);
+    </script>
+</body>
+</html>
